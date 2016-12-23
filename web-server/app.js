@@ -1,4 +1,11 @@
 var express = require('express');
+var pub = require('../shared/infoPublisher');
+
+var port = 7007;
+pub.bind('tcp://*:'+port, function(err) {
+    console.log('Listening for zmq subscribers  '+port+' ...');
+  });
+
 var app = express.createServer();
 
 app.configure(function(){
@@ -23,5 +30,17 @@ app.configure('production', function(){
 });
 
 console.log("Web server has started.\nPlease log on http://127.0.0.1:3006/index.html");
+
+app.use('/',function(req,res){
+  console.log('------------',req.body);
+
+  res.json({info:"848fh9w24y892",msg:"request rcvd at web server"});
+})
+app.use('/',function(req,res){
+  console.log(req.body);
+
+  res.json({info:453988765443,msg:"request rcvd at web server"});
+});
+
 
 app.listen(3006);

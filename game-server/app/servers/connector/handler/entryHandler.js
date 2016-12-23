@@ -16,7 +16,7 @@ var Handler = function(app) {
  */
 Handler.prototype.entry = function(msg, session, next) {
   console.log(msg);
-  next(null, {code: 200, msg: msg+'; game server isssssssssss ok.'});
+  next(null, {code: 200, msg: msg+'; game server isssssssssss ok. '+this.app.getBase()});
 };
 
 /**

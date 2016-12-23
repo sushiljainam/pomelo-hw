@@ -16,7 +16,7 @@
     </script>
     <script src="js/lib/pomeloclient.js">
     </script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
       var pomelo = window.pomelo;
       var host = "127.0.0.1";
       var port = "3010";
@@ -31,6 +31,9 @@
           });
         });
       }
+    </script> -->
+    <script type="text/javascript">
+
     </script>
 
   </head>
@@ -53,6 +56,10 @@
       <div class="g-button">
         <input id="test" type="button" value="Test Game Server" onclick="show()"/>
       </div>
+      <form class="" action="http://localhost:3006/publish" method="post">
+        <input type="submit" name="name" value="post">
+        <input type="text" name="btn" value="asd">
+      </form>
     </div>
   </body>
 </html>
