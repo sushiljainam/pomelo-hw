@@ -1,0 +1,17 @@
+//to start mongodb server
+$ mongod --dbpath "./db" --port 26006
+//to connect with server using shell
+mongo --port 26006
+
+use HWdb
+
+show dbs
+
+show users
+
+db.col1.count()
+
+db.col1.insert({key:123,name:"alpha"})
+
+show collections
+
