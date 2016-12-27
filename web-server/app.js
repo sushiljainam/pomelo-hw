@@ -32,14 +32,26 @@ app.configure('production', function(){
 
 console.log("Web server has started.\nPlease log on http://127.0.0.1:3006/index.html");
 
-app.use('/',function(req,res){
+app.use('/s',function(req,res){
   console.log('------------',req.body);
 
   res.json({info:"848fh9w24y892",msg:"request rcvd at web server"});
 })
-app.use('/',function(req,res){
-  console.log(req.body);
+app.use('/publish',function(req,res){
+  console.log('++++',req.body);
+MongoClient.connect('mongodb://localhost:26006/HWdb', function (err, db) {
+  if (err) {
+    console.log(err);
+    throw err}
 
+  db.collection('col1').insert(req.body, function (err, result) {
+    if (err) {
+      console.log(err);
+      throw err}
+
+    console.log(result);
+  })
+})
   res.json({info:453988765443,msg:"request rcvd at web server"});
 });
 
